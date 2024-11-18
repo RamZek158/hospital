@@ -9,13 +9,14 @@
             text-align: center;
             margin-top: 50px;
         }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
             margin: 10px;
             cursor: pointer;
-        }  
-    </style>   
+        }
+    </style>
     <script>
         function validateForm() {
             const login = document.getElementById('login').value;
@@ -28,17 +29,20 @@
             }
         }
     </script>
+    <script type="text/javascript" src="./js/main.js"></script>
 </head>
 <body>
+    <header id="header"></header>
     <h2>Вход</h2>
     <form onsubmit="event.preventDefault(); validateForm();">
         <label for="login">Логин:</label><br>
         <input type="text" id="login" name="login" required><br><br>
-        
+
         <label for="password">Пароль:</label><br>
         <input type="password" id="password" name="password" required><br><br>
-        
+
         <button type="submit">Войти</button>
     </form>
+    <footer></footer>
 </body>
 </html>
