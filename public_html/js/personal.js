@@ -1,7 +1,14 @@
 import personal from './../static/personal.json' with { type: 'json' }
 
-function drawPersonalTable () {
+
+document.addEventListener("DOMContentLoaded", ready);
+
+function ready(){
+   drawPersonalTable();
+}
+
+function drawPersonalTable() {
+    //alert("alert")
     console.log('personal: ', personal);
 }
 
-drawPersonalTable ();
