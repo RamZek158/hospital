@@ -2,14 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Больница "Андреевская"</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -17,6 +11,7 @@
             cursor: pointer;
         }
     </style>
+    <link rel="stylesheet" href="./css/main.css">
     <script>
         function validateForm() {
             const login = document.getElementById('login').value;
@@ -33,16 +28,20 @@
 </head>
 <body>
     <header id="header"></header>
-    <h2>Вход</h2>
-    <form onsubmit="event.preventDefault(); validateForm();">
-        <label for="login">Логин:</label><br>
-        <input type="text" id="login" name="login" required><br><br>
+    <div class="loginContainer">
+        <h2>Вход</h2>
+        <div class="loginForm">
+            <form onsubmit="event.preventDefault(); validateForm();">
+                <label for="login">Логин:</label><br>
+                <input type="text" id="login" name="login" required><br><br>
 
-        <label for="password">Пароль:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+                <label for="password">Пароль:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
 
-        <button type="submit">Войти</button>
-    </form>
-    <footer></footer>
+                <button class="primaryButton" type="submit">Войти</button>
+            </form>
+        </div>
+    </div>
+    <footer id="footer"></footer>
 </body>
 </html>

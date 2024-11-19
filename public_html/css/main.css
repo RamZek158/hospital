@@ -1,11 +1,42 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
-*/
-/* 
-    Created on : 18 нояб. 2024 г., 19:38:05
-    Author     : amaka
-*/
+
+body {
+     font-family: Arial, sans-serif;
+     font-size: 16px;
+     margin: 0 !important;
+     padding: 0 !important;
+}
+
+#header {
+     width: 100%;
+     height: 100px;
+     background-color: #90EE90;
+}
+
+#footer {
+     position: absolute;
+     bottom: 0 !important;
+     width: 100%;
+     height: 100px;
+     background-color: #778899;
+}
+
+.loginContainer {
+     padding-top: 100px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+}
+
+.contentContainer{
+
+}
+
+.primaryButton {
+     border-radius: 20px;
+     border: solid 1px #778899;
+     background-color: #B0C4DE;
+}
 
 .mainTable {
      width: 100%;
