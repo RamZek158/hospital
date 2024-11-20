@@ -1,7 +1,9 @@
 
-function drawPersonalTable() {
-    let personal = loadPersonal();
-    console.log('personal: ', personal );
+async function drawPersonalTable() {
+    let personal = await loadPersonal();
+    const personalTable = document.createElement('table');
+    console.log('personal[0]', personal[0])
+
 }
 
 async function loadPersonal(){
@@ -10,12 +12,6 @@ async function loadPersonal(){
     try {
         personalResponse = await fetch('./static/personal.json')
         personalJson =  await personalResponse.json()
-       /* personal = await fetch('./static/personal.json')
-            .then(response => response.json())
-            .then(json => {
-                console.log('json: ', json);
-                return json
-            })*/
 
         console.log('uuu personalJson: ',personalJson );
         return personalJson;
