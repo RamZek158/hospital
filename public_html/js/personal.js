@@ -12,7 +12,6 @@ async function drawPersonalTable() {
     const personalTableHead = document.createElement('thead');
     const personalTableBody = document.createElement('tbody');
     const personalTableHeadRow = document.createElement('tr');
-    console.log('personal[0]', personal[0])
 
     Object.keys(personal[0]).forEach(function(key) {
         const personalTableHeadColumn = document.createElement('th')

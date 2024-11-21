@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Больница "Андреевская"</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+    <script type="text/javascript" src="./js/main.js"></script>
+    
+    <script>
+        function validateForm() {
+            const login = document.getElementById('login').value;
+            const password = document.getElementById('password').value;
+
+            if (login && password) {
+                setCookie(LOGIN_USER_COOKIE_NAME, login);
+                window.location.href = 'main.html';
+            } else {
+                alert('Пожалуйста, заполните оба поля.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header id="header"></header>
+    <div class="loginContainer">
+        <h2>Вход</h2>
+        <div class="loginForm">
+            <form onsubmit="event.preventDefault(); validateForm();">
+                <label for="login">Логин:</label><br>
+                <input type="text" id="login" name="login" required><br><br>
+
+                <label for="password">Пароль:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+
+                <button class="primaryButton" type="submit">Войти</button>
+            </form>
+        </div>
+    </div>
+    <footer id="footer"></footer>
+</body>
+</html>
