@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Больница "Андреевская"</title>
-    <style>
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-        }
-    </style>
+
     <link rel="stylesheet" href="./css/main.css">
     <script type="text/javascript" src="./js/main.js"></script>
+    <script>
+        function logout(){
+            deleteCookie(LOGIN_USER_COOKIE_NAME);
+            window.location.href="index.html";
+        }
+    </script>
 </head>
 <body>
  <header id="header"></header>
@@ -45,7 +44,7 @@
          </div>
      </div>
 
-     <button onclick="window.location.href='index.html'">Выйти</button>
+     <button class="primaryButton" onclick="logout()">Выйти</button>
  </div>
  <footer id="footer"></footer>
 </body>
