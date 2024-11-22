@@ -2,6 +2,7 @@ let header = null;
 let headerContainer = null;
 let footer = null;
 let footerContainer = null;
+let unregisterUserMessageContainer = null;
 
 const LOGIN_USER_COOKIE_NAME = "loggedUser";
 
@@ -77,6 +78,7 @@ function loginAction(event) {
     } else {
         deleteCookie(LOGIN_USER_COOKIE_NAME);
         event.target.innerHTML = 'Войти';
+        addUnregisterUserMessage();
     };
 }
 
@@ -110,7 +112,7 @@ function createLayout() {
     header.appendChild(headerContainer);
 
     const headerTitle = document.createElement('h1');
-    const headerTitleText = document.createTextNode('Госпиталь «Андреевский»');
+    const headerTitleText = document.createTextNode('Больница «Андреевская»');
     headerTitle.appendChild(headerTitleText);
     headerCenterPanel.appendChild(headerTitle);
 
@@ -123,4 +125,18 @@ function createLayout() {
     copyright.appendChild(node);
     copyright.style.color = '#FFFAF0';
     footerContainer.appendChild(copyright);
+}
+
+function addUnregisterUserMessage(){
+    unregisterUserMessageContainer = document.createElement('div');
+    unregisterUserMessageContainer.classList.add('unregisterUserMessageContainer');
+    const unregisterUserMessageHeader =  document.createElement('h2');
+    const unregisterUserMessage =  document.createTextNode('Для продолжения работы необходимо зарегистрироваться!');
+    unregisterUserMessageHeader.appendChild(unregisterUserMessage);
+    unregisterUserMessageContainer.appendChild(unregisterUserMessageHeader);
+    header.parentNode.insertBefore(unregisterUserMessageContainer, header.nextSibling);
+}
+
+function removeUnregisterUserMessage() {
+    unregisterUserMessageContainer.remove();
 }
