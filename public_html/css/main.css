@@ -39,17 +39,37 @@ body {
  height: calc(100vh - 220px);
  overflow-y: auto;
 }
-.headerContainer{
-    display:flex;
-    flex-direction: row;
+
+.headerContainer {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.headerLeftPanel {
+  padding-left: 20px;
+  padding-right: 10px;
+}
+.headerCenterPanel {
+   display:flex;
+   flex-grow: 1;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+.headerRightPanel {
+   padding-left: 10px;
+   padding-right: 20px;
 }
 
 .primaryButton {
   padding: 10px 20px;
   font-size: 16px;
-  margin: 10px;
+  margin: 6px;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 10px;
   border: solid 1px #778899;
   background-color: #B0C4DE;
 }
@@ -97,4 +117,4 @@ body {
 
 .mainTable > tbody > tr:nth-child(even) {
     background-color: #f2f2f2;
-}*
+}

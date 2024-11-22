@@ -13,8 +13,7 @@
             const password = document.getElementById('password').value;
 
             if (login && password) {
-                setCookie(LOGIN_USER_COOKIE_NAME, login);
-                window.location.href = 'main.html';
+                setLogin(login);
             } else {
                 alert('Пожалуйста, заполните оба поля.');
             }

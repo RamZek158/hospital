@@ -1,12 +1,13 @@
-
 let header = null;
 let headerContainer = null;
 let footer = null;
 let footerContainer = null;
 
 const LOGIN_USER_COOKIE_NAME = "loggedUser";
-function setCookie(name, value, options = {}) {
 
+document.addEventListener("DOMContentLoaded", ready);
+
+function setCookie(name, value, options = {}) {
     options = {
         path: '/',
         // при необходимости добавьте другие значения по умолчанию
@@ -43,37 +44,66 @@ function deleteCookie(name) {
     })
 }
 
-function createButton(title,container){
+function createButton(title, container) {
     const buttonElement = document.createElement('button');
     const loginButtonText = document.createTextNode(title);
     buttonElement.classList.add('primaryButton');
-    buttonElement.appendChild(loginButtonText); 
+    buttonElement.appendChild(loginButtonText);
     container.appendChild(buttonElement);
     return buttonElement;
 }
 
-document.addEventListener("DOMContentLoaded", ready);
+function getLoginButtonName() {
+    let loginButtonName;
+    const isLogged = getCookie(LOGIN_USER_COOKIE_NAME);
 
-function ready(){
+    isLogged ? loginButtonName = 'Выйти' : loginButtonName = 'Войти'
+    return loginButtonName;
+}
+
+function setLogin(loginName){
+    const loginButton = document.getElementById('loginButton');
+    setCookie(LOGIN_USER_COOKIE_NAME, loginName);
+    window.location.href = 'index.html';
+    loginButton.innerHTML = 'Войти';
+}
+
+function loginAction(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const isLogged = getCookie(LOGIN_USER_COOKIE_NAME);
+    if (!isLogged){
+        window.location.href = 'login.html';
+    } else {
+        deleteCookie(LOGIN_USER_COOKIE_NAME);
+        event.target.innerHTML = 'Войти';
+    };
+}
+
+function ready() {
     createLayout();
 }
 
-function createLayout () {
+function createLayout() {
     header = document.getElementById('header');
     headerContainer = document.createElement('div');
     headerContainer.classList.add('headerContainer');
     const headerLeftPanel = document.createElement('div');
-    
     const headerCenterPanel = document.createElement('div');
     const headerRightPanel = document.createElement('div');
-    
-    const goHomeButton = createButton('На главную',headerLeftPanel);
-    goHomeButton.onclick = ()=>{
-        window.location.href='index.html';
+    headerLeftPanel.classList.add('headerLeftPanel');
+    headerCenterPanel.classList.add('headerCenterPanel');
+    headerRightPanel.classList.add('headerRightPanel');
+
+    const goHomeButton = createButton('На главную', headerLeftPanel);
+    goHomeButton.onclick = () => {
+        window.location.href = 'index.html';
     };
-    
-    const loginButton = createButton('Войти',headerRightPanel);
-    
+
+    const loginButton = createButton(getLoginButtonName(), headerRightPanel);
+    loginButton.id = 'loginButton';
+    loginButton.onclick = (event) => loginAction(event);
+
     headerContainer.appendChild(headerLeftPanel);
     headerContainer.appendChild(headerCenterPanel);
     headerContainer.appendChild(headerRightPanel);
@@ -88,7 +118,7 @@ function createLayout () {
     footerContainer = document.createElement('div');
     footerContainer.style.textAlign = 'center';
     footer.appendChild(footerContainer);
-    const copyright =  document.createElement('p');
+    const copyright = document.createElement('p');
     const node = document.createTextNode('© Оформление сайта. ООО «Ромашка», 2024');
     copyright.appendChild(node);
     copyright.style.color = '#FFFAF0';
