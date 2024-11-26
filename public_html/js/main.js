@@ -67,6 +67,7 @@ function setLogin(loginName){
     setCookie(LOGIN_USER_COOKIE_NAME, loginName);
     window.location.href = 'index.html';
     loginButton.innerHTML = 'Войти';
+    removeUnregisterUserMessage();
 }
 
 function loginAction(event) {
@@ -87,6 +88,7 @@ function ready() {
 }
 
 function createLayout() {
+    const isLogged = getCookie(LOGIN_USER_COOKIE_NAME);
     header = document.getElementById('header');
     headerContainer = document.createElement('div');
     headerContainer.classList.add('headerContainer');
@@ -125,9 +127,15 @@ function createLayout() {
     copyright.appendChild(node);
     copyright.style.color = '#FFFAF0';
     footerContainer.appendChild(copyright);
+
+    if(!isLogged) {
+        addUnregisterUserMessage();
+    }
 }
 
-function addUnregisterUserMessage(){
+function addUnregisterUserMessage() {
+    const contentContainer = document.getElementsByClassName('contentContainer')[0];
+    contentContainer.style.display = 'none';
     unregisterUserMessageContainer = document.createElement('div');
     unregisterUserMessageContainer.classList.add('unregisterUserMessageContainer');
     const unregisterUserMessageHeader =  document.createElement('h2');
@@ -138,5 +146,7 @@ function addUnregisterUserMessage(){
 }
 
 function removeUnregisterUserMessage() {
+    const contentContainer = document.getElementsByClassName('contentContainer')[0];
     unregisterUserMessageContainer.remove();
+    contentContainer.style.display = 'block';
 }
