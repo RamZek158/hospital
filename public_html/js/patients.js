@@ -2,7 +2,8 @@ const HEADER_TITLES =  {
     fio: "ФИО",
     weight: "Вес",
     age: "Возраст",
-    diagnosis: "Диагноз"
+    diagnosis: "Диагноз",
+    hospitalWard: "Палата"
 };
 
 async function drawPatientsTable() {
@@ -21,15 +22,33 @@ async function drawPatientsTable() {
         patientsTableHeadRow.appendChild(patientsTableHeadColumn);
     });
 
+    const treatmentTableHeadColumn = document.createElement('th')
+    const headerTreatmentTitleText = document.createTextNode("Лечение");
+    treatmentTableHeadColumn.appendChild(headerTreatmentTitleText);
+    patientsTableHeadRow.appendChild(treatmentTableHeadColumn);
+
     patients.map((person) => {
-        const  personalTableBodyRow = document.createElement('tr');
+        const  patiensTableBodyRow = document.createElement('tr');
         Object.values(person).forEach(function(value) {
-            const personalTableBodyColumn = document.createElement('th')
+            const patiensTableBodyColumn = document.createElement('th')
             const columnText = document.createTextNode(value);
-            personalTableBodyColumn.appendChild(columnText);
-            personalTableBodyRow.appendChild(personalTableBodyColumn);
+            patiensTableBodyColumn.appendChild(columnText);
+            patiensTableBodyRow.appendChild(patiensTableBodyColumn);
         });
-        patientsTableBody.appendChild(personalTableBodyRow);
+        const treatmentTableBodyColumn = document.createElement('th')
+
+        const treatmentContainer = document.createElement('div');
+        treatmentContainer.classList.add("treatmentContainer");
+        const treatmentButton = document.createElement('button');
+        const treatmentButtonText = document.createTextNode('Назначить лечение');
+        treatmentButton.appendChild(treatmentButtonText);
+        treatmentButton.classList.add("primaryButton");
+        treatmentContainer.appendChild(treatmentButton);
+
+        treatmentTableBodyColumn.appendChild(treatmentContainer);
+        patiensTableBodyRow.appendChild(treatmentTableBodyColumn);
+
+        patientsTableBody.appendChild(patiensTableBodyRow);
     })
     patientsTableHead.appendChild(patientsTableHeadRow);
     patientsTable.appendChild(patientsTableHead);
@@ -44,7 +63,6 @@ async function loadPatients(){
         patientsResponse = await fetch('./static/patients.json')
         patientsJson =  await patientsResponse.json()
 
-        console.log('uuu patientsJson: ',patientsJson );
         return patientsJson;
     } catch(error) {
         console.log(error);
