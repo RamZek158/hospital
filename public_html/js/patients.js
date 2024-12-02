@@ -45,6 +45,27 @@ async function drawPatientsTable() {
         treatmentButton.classList.add("primaryButton");
         treatmentContainer.appendChild(treatmentButton);
 
+        treatmentButton.onclick = () => {
+            const popUpElement = document.getElementById("popup");
+            popUpElement.show();
+            const popupActionBtn = popUpElement.getElementsByClassName('addTreatment')[0];
+            popupActionBtn.onclick = () => {
+                const treatment = popUpElement.getElementsByClassName('treatment')[0];
+                const treatmentUrgent = popUpElement.getElementsByClassName('treatmentUrgent')[0];
+                console.log('treatment', treatment.value);
+                console.log('treatmentUrgent', treatmentUrgent.checked);
+                addTreatment({
+                    patient: person.fio,
+                    hospitalWard: person.hospitalWard,
+                    treatment: treatment.value,
+                    treatmentUrgent: treatmentUrgent.checked
+                })
+                treatment.value = '';
+                treatmentUrgent.checked = false;
+                popUpElement.close();
+            }
+        }
+
         treatmentTableBodyColumn.appendChild(treatmentContainer);
         patiensTableBodyRow.appendChild(treatmentTableBodyColumn);
 

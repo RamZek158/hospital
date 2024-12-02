@@ -128,3 +128,28 @@ body {
 .mainTable > tbody > tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+
+.modal {
+    position:absolute;
+    background-color: #D2B48C;
+    border: 1px solid #dddddd;
+    left: 0;
+    top: 190px;
+    border-radius: 6px;
+    z-index: 1000;
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.modalContent > div {
+    margin-top: 10px;
+}
+
+.modalAction {
+    text-align: center;
+}
+
