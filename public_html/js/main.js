@@ -4,7 +4,9 @@ let footer = null;
 let footerContainer = null;
 let unregisterUserMessageContainer = null;
 
+
 const LOGIN_USER_COOKIE_NAME = "loggedUser";
+let callBack = () => { return;}
 
 document.addEventListener("DOMContentLoaded", ready);
 
@@ -85,6 +87,7 @@ function loginAction(event) {
 
 function ready() {
     createLayout();
+    callBack();
 }
 
 function createLayout() {

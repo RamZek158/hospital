@@ -1,0 +1,11 @@
+
+.treatmentCard {
+    margin: 20px;
+    padding: 10px;
+    background-color: #00BFFF;
+}
+
+.treatmentUrgentCard {
+    background-color: #FF8C00 !important;
+}
+

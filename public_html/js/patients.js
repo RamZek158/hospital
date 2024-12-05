@@ -52,14 +52,14 @@ async function drawPatientsTable() {
             popupActionBtn.onclick = () => {
                 const treatment = popUpElement.getElementsByClassName('treatment')[0];
                 const treatmentUrgent = popUpElement.getElementsByClassName('treatmentUrgent')[0];
-                console.log('treatment', treatment.value);
-                console.log('treatmentUrgent', treatmentUrgent.checked);
-                addTreatment({
+                let task = {
+                    id: `id_${Math.random().toString(16).slice(2)}`,
                     patient: person.fio,
                     hospitalWard: person.hospitalWard,
                     treatment: treatment.value,
                     treatmentUrgent: treatmentUrgent.checked
-                })
+                }
+                setJsonItem(TREATMENTS_KEY, task);
                 treatment.value = '';
                 treatmentUrgent.checked = false;
                 popUpElement.close();
