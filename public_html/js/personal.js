@@ -35,6 +35,21 @@ async function drawPersonalTable() {
     personalTable.appendChild(personalTableBody);
     personalTableContainer.appendChild(personalTable);
     
+    const eventButton = document.getElementById('eventButton');
+    
+    eventButton.onclick = () => {
+        const event = document.getElementById('event');
+         const eventData = document.getElementById('eventData');
+         
+         
+            let task = {
+                id: `id_${Math.random().toString(16).slice(2)}`,
+                event:event.value,
+                eventData:eventData.value
+            }
+            setJsonItem(EVENTS_KEY, task);
+            event.value = '';             
+    }
     
 }
 
@@ -44,8 +59,6 @@ async function loadPersonal(){
     try {
         personalResponse = await fetch('./static/personal.json')
         personalJson =  await personalResponse.json()
-
-        console.log('uuu personalJson: ',personalJson );
         return personalJson;
     } catch(error) {
         console.log(error);

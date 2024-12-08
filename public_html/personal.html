@@ -6,6 +6,7 @@
     <title>Больница "Андреевская"</title>
 
     <link rel="stylesheet" href="./css/main.css">
+     <script type="text/javascript" src="./js/lsUtils.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
     <script type="text/javascript" src="./js/personal.js"></script>
 </head>
@@ -16,13 +17,13 @@
         <div class="board">
           <details>
             <summary>Назначить событие</summary>
-            <form>
-                <label for="announcement">Событие:</label><br>
-                <textarea id="announcement" rows="10" cols="50"></textarea><br><br>
-                <label for="date">Дата:</label><br>
-                <input type="date" id="date"><br><br>
-                <button type="submit">Опубликовать</button>
-            </form>
+           
+                <label for="event">Событие:</label><br>
+                <textarea id="event" rows="10" cols="50"></textarea><br><br>
+                <label for="eventData">Дата:</label><br>
+                <input id="eventData" type="date"><br><br>
+                <button id="eventButton" type="button">Опубликовать</button>
+           
           </details>
         </div>
         <div class="tableContainer"></div>

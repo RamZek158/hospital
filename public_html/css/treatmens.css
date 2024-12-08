@@ -1,5 +1,5 @@
 
-.treatmentCard {
+.treatmentCard, .eventCard{
     margin: 20px;
     padding: 10px;
     background-color: #00BFFF;

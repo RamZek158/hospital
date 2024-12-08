@@ -1,6 +1,6 @@
 
 const TREATMENTS_KEY = "treatments";
-const TREATMENTS_KEY = "ivents";
+const EVENTS_KEY = "events";
 
 
 function setJsonItem(key, json) {
