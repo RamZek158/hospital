@@ -34,6 +34,8 @@ async function drawPersonalTable() {
     personalTable.appendChild(personalTableHead);
     personalTable.appendChild(personalTableBody);
     personalTableContainer.appendChild(personalTable);
+    
+    
 }
 
 async function loadPersonal(){

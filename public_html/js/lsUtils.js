@@ -1,5 +1,7 @@
 
 const TREATMENTS_KEY = "treatments";
+const TREATMENTS_KEY = "ivents";
+
 
 function setJsonItem(key, json) {
     let lsData = localStorage.getItem(key);
